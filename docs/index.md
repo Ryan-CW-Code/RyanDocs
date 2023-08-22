@@ -1,12 +1,12 @@
 ---
 title:
 hero:
-  title: Ryan
-  description: 基于dumi的静态站点 - Ryan组件库
+  title: RyanDocs
+  description: 基于dumi创建的静态站点 - RyanDocs
   actions:
-    - text: Hello
+    - text: 你好
       link: /
-    - text: World
+    - text: Hello
       link: /
 
 features:
@@ -27,5 +27,6 @@ features:
 <br/>
 
 ## 交流与反馈
+
 Email: 1831931681@qq.com <br/>
-wx: 17513216936
+wx: 17513216936<br/><br/>

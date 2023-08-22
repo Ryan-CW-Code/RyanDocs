@@ -2,29 +2,26 @@
   "name": "dumiLib",
   "version": "0.0.1",
   "description": "A react library developed with dumi",
+  "license": "MIT",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "start": "npm run dev",
-    "dev": "dumi dev",
     "build": "father build",
     "build:watch": "father dev",
+    "deploy": "gh-pages -d dist",
+    "dev": "dumi dev",
     "docs:build": "dumi build",
-    "prepare": "husky install && dumi setup",
     "doctor": "father doctor",
     "lint": "npm run lint:es && npm run lint:css",
     "lint:css": "stylelint \"{src,test}/**/*.{css,less}\"",
     "lint:es": "eslint \"{src,test}/**/*.{js,jsx,ts,tsx}\"",
+    "prepare": "husky install && dumi setup",
     "prepublishOnly": "father doctor && npm run build",
-    "deploy": "gh-pages -d dist"
+    "start": "npm run dev"
   },
-  "authors": [
-    "Ryan"
-  ],
-  "license": "MIT",
-  "files": [
-    "dist"
-  ],
   "commitlint": {
     "extends": [
       "@commitlint/config-conventional"
@@ -47,12 +44,8 @@
       "prettier --parser=typescript --write"
     ]
   },
-  "publishConfig": {
-    "access": "public"
-  },
-  "peerDependencies": {
-    "react": ">=16.9.0",
-    "react-dom": ">=16.9.0"
+  "dependencies": {
+    "dumi-theme-chakra": "^0.0.22"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.6.6",
@@ -60,7 +53,7 @@
     "@types/react": "^18.2.14",
     "@types/react-dom": "^18.2.6",
     "@umijs/lint": "^4.0.72",
-    "dumi": "^2.2.1",
+    "dumi": "^2.2.6",
     "eslint": "^8.44.0",
     "father": "^4.2.3",
     "gh-pages": "^6.0.0",
@@ -73,7 +66,14 @@
     "react-dom": "^18.2.0",
     "stylelint": "^15.10.0"
   },
-  "dependencies": {
-    "dumi-theme-chakra": "^0.0.22"
-  }
+  "peerDependencies": {
+    "react": ">=16.9.0",
+    "react-dom": ">=16.9.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "authors": [
+    "Ryan"
+  ]
 }

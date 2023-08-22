@@ -16,7 +16,7 @@ export default defineConfig({
   //   ],
 
   themeConfig: {
-    name: 'Ryan组件库',
+    name: 'RyanDocs',
     logo: withGH('logo.png'),
     ...defineThemeConfig({
       brand: baseTheme.colors.twitter,
@@ -32,7 +32,7 @@ export default defineConfig({
       },
       announcementBar: {
         id: 'announce current progress info',
-        content: '欢迎光临Ryan小站，这里推荐一些嵌入式常用库',
+        content: '欢迎光临，这是一条横幅我还没想好写什么😎',
         isCloseable: true,
       },
     }),
