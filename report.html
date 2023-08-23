@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+<title>Report</title>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/highcharts/8.2.0/highcharts.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/highcharts/8.2.0/modules/series-label.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/highcharts/8.2.0/modules/exporting.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/highcharts/8.2.0/modules/export-data.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/highcharts/8.2.0/modules/offline-exporting.min.js'></script>
+<link rel='stylesheet' type='text/css' href='https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.0/css/bulma.min.css'>
+<style type='text/css'> hr { height: 1px; margin: 5px 0; background-color: #999999; } </style>
+</head>
+<body>
+<nav class='navbar is-light is-fixed-top' role='navigation' aria-label='main navigation'>
+    <div class='navbar-brand'>
+        <a class='navbar-item' href='#'>Report</a>
+        <a role='button' class='navbar-burger burger' aria-label='menu' data-target='main-menu'
+            onclick='document.querySelector(".navbar-menu").classList.toggle("is-active");'>
+            <span aria-hidden='true'></span>
+            <span aria-hidden='true'></span>
+            <span aria-hidden='true'></span>
+        </a>
+    </div>
+    <div id='main-menu' class='navbar-menu'>
+        <div class='navbar-start'>
+            <div class='navbar-item has-dropdown is-hoverable'>
+                <a class='navbar-link'>Info</a>
+                <div class='navbar-dropdown'>
+                    <a class='navbar-item'>Compiler: GCC 9.4.0</a>
+                    <a class='navbar-item'>OS: Linux 64-bit</a>
+                    <a class='navbar-item'>CPU: 12th Gen Intel(R) Core(TM) i7-12700F</a>
+                    <a class='navbar-item'>CPU Frequency: 4590.31 MHz</a>
+                </div>
+            </div>
+            <div class='navbar-item has-dropdown is-hoverable'>
+                <a class='navbar-link'>Charts</a>
+                <div class='navbar-dropdown'>
+                    <a class='navbar-item' href='#chart_0'>JSON reader</a>
+                    <a class='navbar-item' href='#chart_1'>JSON reader (cpb)</a>
+                    <a class='navbar-item' href='#chart_2'>JSON writer pretty</a>
+                    <a class='navbar-item' href='#chart_3'>JSON writer minify</a>
+                    <a class='navbar-item' href='#chart_4'>JSON stats</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<a name='chart_0'></a>
+<div style='width: 60px; height: 60px; margin: 0 auto'></div>
+<div id='chart_id_0' style='width: 800px; height: 350px; margin: 0 auto'></div>
+<script type='text/javascript'>
+Highcharts.chart('chart_id_0', {
+    chart: { type: 'column' },
+    title: { text: 'JSON reader' },
+    subtitle: { text: 'gigabytes per second (larger is better)' },
+    credits: { enabled: false },
+    xAxis: { allowDecimals: true, categories: ['canada', 'citm_catalog', 'fgo', 'github_events', 'gsoc-2018', 'lottie', 'otfcc', 'poet', 'twitter', 'twitterescaped'], type: 'linear' },
+    yAxis: { title: { text: 'GB/s' }, allowDecimals: true, type: 'linear' },
+    tooltip: {valueDecimals: 2, valueSuffix: ' GB/s', shared: false, crosshairs: false, shadow: false },
+    legend: { layout: 'vertical', align: 'right', verticalAlign: 'middle', enabled: true },
+    plotOptions: {
+        column: { groupPadding: 0.100000, pointPadding: 0.000000, borderWidth: 0.000000, colorByPoint: false },
+        series: { label: { enabled: false}, dataLabels: { enabled: false , allowOverlap: true, format: '{point.y:.2f}' } }
+    },
+    series: [
+        { name: 'RyanJson', data: [0.589924, 0.884777, 0.232038, 0.412862, 0.692499, 0.118106, 0.199774, 0.431139, 0.633979, 0.240159] },
+        { name: 'yyjson', data: [1.308387, 2.902035, 1.748035, 3.372911, 2.803257, 0.757287, 1.373860, 4.012978, 2.886251, 1.287900] },
+        { name: 'simdjson', data: [1.278042, 4.449957, 0.554324, 4.867940, 4.650036, 0.899238, 0.936628, 3.837491, 4.158095, 0.903244] },
+        { name: 'rapidjson', data: [0.346136, 1.485849, 0.416866, 0.856396, 0.893074, 0.474843, 0.512184, 0.901075, 0.908449, 0.375271] },
+        { name: 'cjson', data: [0.160648, 0.860889, 0.198563, 0.472794, 0.489792, 0.142615, 0.084240, 0.424363, 0.652675, 0.265923] },
+        { name: 'jansson', data: [0.071222, 0.163152, 0.063065, 0.120975, 0.135700, 0.054941, 0.043539, 0.104130, 0.111231, 0.053581] }
+    ]
+});
+</script>
+
+<a name='chart_1'></a>
+<div style='width: 60px; height: 60px; margin: 0 auto'></div>
+<div id='chart_id_1' style='width: 800px; height: 350px; margin: 0 auto'></div>
+<script type='text/javascript'>
+Highcharts.chart('chart_id_1', {
+    chart: { type: 'column' },
+    title: { text: 'JSON reader (cpb)' },
+    subtitle: { text: 'cycles per byte (smaller is better)' },
+    credits: { enabled: false },
+    xAxis: { allowDecimals: true, categories: ['canada', 'citm_catalog', 'fgo', 'github_events', 'gsoc-2018', 'lottie', 'otfcc', 'poet', 'twitter', 'twitterescaped'], type: 'linear' },
+    yAxis: { title: { text: 'cycles' }, allowDecimals: true, type: 'linear' },
+    tooltip: {valueDecimals: 2, valueSuffix: ' cycles/byte', shared: false, crosshairs: false, shadow: false },
+    legend: { layout: 'vertical', align: 'right', verticalAlign: 'middle', enabled: true },
+    plotOptions: {
+        column: { groupPadding: 0.100000, pointPadding: 0.000000, borderWidth: 0.000000, colorByPoint: false },
+        series: { label: { enabled: false}, dataLabels: { enabled: false , allowOverlap: true, format: '{point.y:.2f}' } }
+    },
+    series: [
+        { name: 'RyanJson', data: [7.246797, 4.831796, 18.423937, 10.354708, 6.173383, 36.196754, 21.399462, 9.915733, 6.743222, 17.800964] },
+        { name: 'yyjson', data: [3.267429, 1.473126, 2.445639, 1.267469, 1.525034, 5.645232, 3.111717, 1.065309, 1.481182, 3.319405] },
+        { name: 'simdjson', data: [3.345010, 0.960697, 7.712204, 0.878208, 0.919361, 4.754094, 4.564312, 1.114025, 1.028130, 4.733012] },
+        { name: 'rapidjson', data: [12.350815, 2.877186, 10.255255, 4.991920, 4.786907, 9.003110, 8.346731, 4.744400, 4.705892, 11.391936] },
+        { name: 'cjson', data: [26.611410, 4.965867, 21.530018, 9.042118, 8.728329, 29.976313, 50.748608, 10.074080, 6.550063, 16.076344] },
+        { name: 'jansson', data: [60.024422, 26.202982, 67.788223, 35.338490, 31.503666, 77.812561, 98.188583, 41.054947, 38.433945, 79.787483] }
+    ]
+});
+</script>
+
+<a name='chart_2'></a>
+<div style='width: 60px; height: 60px; margin: 0 auto'></div>
+<div id='chart_id_2' style='width: 800px; height: 350px; margin: 0 auto'></div>
+<script type='text/javascript'>
+Highcharts.chart('chart_id_2', {
+    chart: { type: 'column' },
+    title: { text: 'JSON writer pretty' },
+    subtitle: { text: 'gigabytes per second (larger is better)' },
+    credits: { enabled: false },
+    xAxis: { allowDecimals: true, categories: ['canada', 'citm_catalog', 'fgo', 'github_events', 'gsoc-2018', 'lottie', 'otfcc', 'poet', 'twitter', 'twitterescaped'], type: 'linear' },
+    yAxis: { title: { text: 'GB/s' }, allowDecimals: true, type: 'linear' },
+    tooltip: {valueDecimals: 2, valueSuffix: ' GB/s', shared: false, crosshairs: false, shadow: false },
+    legend: { layout: 'vertical', align: 'right', verticalAlign: 'middle', enabled: true },
+    plotOptions: {
+        column: { groupPadding: 0.100000, pointPadding: 0.000000, borderWidth: 0.000000, colorByPoint: false },
+        series: { label: { enabled: false}, dataLabels: { enabled: false , allowOverlap: true, format: '{point.y:.2f}' } }
+    },
+    series: [
+        { name: 'RyanJson', data: [0.045813, 0.407609, 0.263947, 0.301017, 0.350268, 0.273229, 0.316308, 0.084582, 0.117827, 0.225028] },
+        { name: 'yyjson', data: [2.293322, 3.212734, 3.506575, 2.202114, 2.860270, 2.867635, 1.903734, 2.914441, 2.404756, 2.416286] },
+        { name: 'simdjson', data: [null, null, null, null, null, null, null, null, null, null] },
+        { name: 'rapidjson', data: [0.390203, 0.651803, 0.533762, 0.640817, 1.392527, 0.299199, 0.615519, 0.710664, 0.649031, 0.588246] },
+        { name: 'cjson', data: [0.031237, 0.101753, 0.062783, 0.325248, 0.299499, 0.053172, 0.080889, 0.642016, 0.239331, 0.243474] },
+        { name: 'jansson', data: [0.187836, 0.187640, 0.171776, 0.163001, 0.283211, 0.233083, 0.132651, 0.297863, 0.175278, 0.188140] }
+    ]
+});
+</script>
+
+<a name='chart_3'></a>
+<div style='width: 60px; height: 60px; margin: 0 auto'></div>
+<div id='chart_id_3' style='width: 800px; height: 350px; margin: 0 auto'></div>
+<script type='text/javascript'>
+Highcharts.chart('chart_id_3', {
+    chart: { type: 'column' },
+    title: { text: 'JSON writer minify' },
+    subtitle: { text: 'gigabytes per second (larger is better)' },
+    credits: { enabled: false },
+    xAxis: { allowDecimals: true, categories: ['canada', 'citm_catalog', 'fgo', 'github_events', 'gsoc-2018', 'lottie', 'otfcc', 'poet', 'twitter', 'twitterescaped'], type: 'linear' },
+    yAxis: { title: { text: 'GB/s' }, allowDecimals: true, type: 'linear' },
+    tooltip: {valueDecimals: 2, valueSuffix: ' GB/s', shared: false, crosshairs: false, shadow: false },
+    legend: { layout: 'vertical', align: 'right', verticalAlign: 'middle', enabled: true },
+    plotOptions: {
+        column: { groupPadding: 0.100000, pointPadding: 0.000000, borderWidth: 0.000000, colorByPoint: false },
+        series: { label: { enabled: false}, dataLabels: { enabled: false , allowOverlap: true, format: '{point.y:.2f}' } }
+    },
+    series: [
+        { name: 'RyanJson', data: [0.063814, 0.238223, 0.157912, 0.291318, 0.370877, 0.125941, 0.247839, 0.095185, 0.109366, 0.111528] },
+        { name: 'yyjson', data: [0.418198, 1.290311, 2.093097, 1.715715, 2.761859, 0.949956, 1.007056, 1.737690, 1.776910, 1.735160] },
+        { name: 'simdjson', data: [0.227016, 0.587633, 0.575286, 0.837629, 1.437552, 0.385368, 0.415458, 1.387893, 0.816882, 0.826946] },
+        { name: 'rapidjson', data: [1.265329, 1.363054, 0.865454, 0.623586, 1.460952, 1.630718, 1.047670, 0.743841, 0.926417, 0.895835] },
+        { name: 'cjson', data: [0.029335, 0.060434, 0.042423, 0.301593, 0.302223, 0.025664, 0.035951, 1.183645, 0.211898, 0.207264] },
+        { name: 'jansson', data: [0.054985, 0.062076, 0.071347, 0.123449, 0.267840, 0.058867, 0.046143, 0.284532, 0.124171, 0.120289] }
+    ]
+});
+</script>
+
+<a name='chart_4'></a>
+<div style='width: 60px; height: 60px; margin: 0 auto'></div>
+<div id='chart_id_4' style='width: 800px; height: 350px; margin: 0 auto'></div>
+<script type='text/javascript'>
+Highcharts.chart('chart_id_4', {
+    chart: { type: 'column' },
+    title: { text: 'JSON stats' },
+    subtitle: { text: 'value count per seconds (larger is better)' },
+    credits: { enabled: false },
+    xAxis: { allowDecimals: true, categories: ['canada', 'citm_catalog', 'fgo', 'github_events', 'gsoc-2018', 'lottie', 'otfcc', 'poet', 'twitter', 'twitterescaped'], type: 'linear' },
+    yAxis: { title: { text: 'value count' }, allowDecimals: true, type: 'linear' },
+    tooltip: {valueDecimals: 2, shared: false, crosshairs: false, shadow: false },
+    legend: { layout: 'vertical', align: 'right', verticalAlign: 'middle', enabled: true },
+    plotOptions: {
+        column: { groupPadding: 0.100000, pointPadding: 0.000000, borderWidth: 0.000000, colorByPoint: false },
+        series: { label: { enabled: false}, dataLabels: { enabled: false , allowOverlap: true, format: '{point.y:.2f}' } }
+    },
+    series: [
+        { name: 'RyanJson', data: [488504800.000000, 518589952.000000, 274231040.000000, 512152192.000000, 355071936.000000, 503471200.000000, 269660736.000000, 416207040.000000, 490616224.000000, 467668032.000000] },
+        { name: 'yyjson', data: [379326240.000000, 570470080.000000, 552599552.000000, 855459072.000000, 963256064.000000, 525961472.000000, 421579232.000000, 939390464.000000, 826692608.000000, 828334016.000000] },
+        { name: 'simdjson', data: [257206784.000000, 401859936.000000, 465421120.000000, 658706944.000000, 813193216.000000, 313191392.000000, 308932576.000000, 659628608.000000, 559027328.000000, 558051968.000000] },
+        { name: 'rapidjson', data: [362396864.000000, 500695232.000000, 361728928.000000, 525626976.000000, 691835584.000000, 447673376.000000, 272095680.000000, 532949952.000000, 655137600.000000, 644957824.000000] },
+        { name: 'cjson', data: [212317040.000000, 289731008.000000, 177497984.000000, 374703584.000000, 282394176.000000, 281848800.000000, 156513184.000000, 301836992.000000, 341918528.000000, 343118784.000000] },
+        { name: 'jansson', data: [235111904.000000, 161067168.000000, 129183600.000000, 200090080.000000, 153164224.000000, 142383648.000000, 101360960.000000, 258504928.000000, 197107200.000000, 196117472.000000] }
+    ]
+});
+</script>
+
+</body>
+</html>
