@@ -57,7 +57,8 @@ char *RyanJsonPrint(RyanJson_t pJson, uint32_t preset, RyanJsonBool format, uint
  * @param len
  * @return char*
  */
-char *RyanJsonPrintPreallocated(RyanJson_t pJson, char *buffer, uint32_t length, RyanJsonBool format, 										uint32_t *len);
+char *RyanJsonPrintPreallocated(RyanJson_t pJson, char *buffer, uint32_t length, RyanJsonBool format,
+                                uint32_t *len);
 ```
 
 ### json常用功能
